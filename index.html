@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Congratulations!</title>
+    <style>
+      h1 {
+        text-align: center;
+        cursor: pointer;
+        margin-top: 3em;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+
+    <div id="app">
+      <h1 @click="showConfetti">🎉 Congratulations!</h1>
+    </div>
+
+    <script>
+      const confetti = new JSConfetti()
+      Vue.createApp({
+        setup() {
+          function showConfetti() {
+            confetti.addConfetti()
+          }
+
+          showConfetti()
+
+          return {
+            showConfetti
+          }
+        }
+      }).mount('#app')
+    </script>
+  </body>
+</html>
